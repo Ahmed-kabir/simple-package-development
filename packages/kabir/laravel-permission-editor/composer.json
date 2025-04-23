@@ -1,0 +1,17 @@
+{
+    "name": "kabir/laravel-permission-editor",
+    "description": "Visual UI for managing Roles/Permissions for Spatie Laravel",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Kabir\\LaravelPermissionEditor\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "kabirahmed",
+            "email": "kabir14235@gmail.com"
+        }
+    ],
+    "require": {}
+}
