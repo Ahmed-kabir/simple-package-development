@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "0bc90d062d9557f70bc71294db57a6cb",
+    "content-hash": "9b8b4f11852cd809ec2b40fe172b0723",
     "packages": [
         {
             "name": "brick/math",
@@ -1056,13 +1056,20 @@
         },
         {
             "name": "kabir/laravel-permission-editor",
-            "version": "dev-main",
+            "version": "dev-master",
             "dist": {
                 "type": "path",
                 "url": "packages/kabir/laravel-permission-editor",
-                "reference": "a98c25195224c0b84211bb3d1046c3dfb2e22324"
+                "reference": "c40eac02f8f7589faf78d107e20ad9983ad914ec"
             },
             "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "kabir\\LaravelPermissionEditor\\PermissionEditorServiceProvider"
+                    ]
+                }
+            },
             "autoload": {
                 "psr-4": {
                     "Kabir\\LaravelPermissionEditor\\": "src/"
