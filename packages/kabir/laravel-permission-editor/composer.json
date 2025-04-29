@@ -20,5 +20,7 @@
             "email": "kabir14235@gmail.com"
         }
     ],
-    "require": {}
+    "require": {
+          "spatie/laravel-permission": "^6.0"
+    }
 }
