@@ -35,29 +35,32 @@ class RoleController extends Controller
         return redirect()->route('permission-editor.roles.index');
     }
 
-    public function edit(Role $role)
+    public function edit($id)
     {
-        $permissions = Permission::pluck('name', 'id');
+        $data['role'] = Role::where('id', $id)->first();
+        $data['permissions'] = Permission::pluck('name', 'id');
 
-        return view('permission-editor::roles.edit', compact('role', 'permissions'));
+        return view('permission-editor::roles.edit', $data);
     }
 
-    public function update(Request $request, Role $role)
+    public function update($id)
     {
-        $request->validate([
+        $role = Role::where('id', $id)->first();
+        request()->validate([
             'name' => ['required', 'string', 'unique:roles,name,' . $role->id],
             'permissions' => ['array'],
         ]);
 
-        $role->update(['name' => $request->input('name')]);
+        $role->update(['name' => request()->input('name')]);
 
-        $role->syncPermissions($request->input('permissions'));
+        $role->syncPermissions(request()->input('permissions'));
 
         return redirect()->route('permission-editor.roles.index');
     }
 
-    public function destroy(Role $role)
+    public function destroy($id)
     {
-        $role->delete();
+        Role::where('id', $id)->delete();
+        return redirect()->route('permission-editor.roles.index');
     }
 }
